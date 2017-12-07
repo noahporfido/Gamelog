@@ -24,9 +24,8 @@ foreach($blogBeiträge as $blogBeitrag)
     
     
     
-    echo "<a href='index.php?function=einbloganzeigen&bid=".$blogId."&eid=".$blogBeitrag['eid']. "&title='BlogAuswählen' id='blogTitel'>".$blogBeitrag['title']."</a>";
+    echo "<a href='index.php?function=einbloganzeigen&bid=".$blogId."&eid=".$blogBeitrag['eid']. "&title='BlogAuswählen' class='blogTitel'>".$blogBeitrag['title']."</a>";
    
-    echo "<p id='blogText'>".$replace."</p>";
 }
     echo "</ul>";
     echo "</div>";

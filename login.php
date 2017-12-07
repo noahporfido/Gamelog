@@ -1,18 +1,28 @@
+<?php
+    if(isset($_POST['email']))
+    {
+        $userId = getUserIdFromDb($_POST['email'], $_POST['passwort']);
+        
+        if($userId == 0)
+        {
+            echo "<p>Login ist Falsch</p>";
+        }
+        else
+        {
+            $_SESSION['userId']=$userId;
+            header("Location: {$_SERVER['PHP_SELF']}?function=profil");
+        }
+    }
+?>
 
-    <div class="login-page">
-        <div class="form">
-            <form class="register-form">
-                <input type="text" placeholder="name" />
-                <input type="password" placeholder="password" />
-                <input type="text" placeholder="email address" />
-                <button>create</button>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
-            </form>
-            <form class="login-form">
-                <input type="text" placeholder="username" />
-                <input type="password" placeholder="password" />
-                <button>login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
-            </form>
-        </div>
+
+
+<div class="login-page">
+    <div class="form"> 
+        <form method="post" class="login-form">
+            <input type="text" placeholder="email" value="marc.muster@gibb.ch" name="email" />
+            <input type="password" placeholder="password" value="gibbiX12345" name="passwort" />
+            <input type="submit" value="Login">
+        </form>
     </div>
+</div>
