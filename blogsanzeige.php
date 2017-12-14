@@ -13,12 +13,12 @@ foreach($blogBeiträge as $blogBeitrag)
    
 }
 
-echo "<div id='blogTeil'>";
+
 
     if(isset($_GET['eid']))
     {
  $eid= $_GET['eid'];
-        
+        echo "<div id='blogTeil'>";
 $blogbeiträge = getEntry($eid);
 
     $replace = str_replace(array("\r\n","\r","\n"),"<br/>", $blogbeiträge['content']);
@@ -28,12 +28,11 @@ $blogbeiträge = getEntry($eid);
     <p id='blogDate'>".$date."</p>
     <p>".$replace."</p>
     </div>";
+    echo "</div>";
     }
 else
 {
     echo "<p>Wählen sie einen Blog</p>";
 }
-
-echo "</div>";
 ?>
 

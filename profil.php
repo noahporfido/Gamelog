@@ -1,10 +1,9 @@
 <?php
 
-$LoggedinUser = getUserName($_SESSION['userId']);
+
 $blogBeiträge = getEntries($_SESSION['userId']);
 
-    echo "<h1 id='blogOwner'>".$LoggedinUser."'s Profil</h1>
-    <div id='BlogAuswahl'>";
+    echo "<div id='BlogAuswahl'>";
     
 foreach($blogBeiträge as $blogBeitrag)
 {
@@ -12,14 +11,17 @@ foreach($blogBeiträge as $blogBeitrag)
     $date = date("Y-m-d H:i:s", $blogBeitrag['datetime']);
     
     echo "<a href='index.php?function=profil&bid=".$blogId."&eid=".$blogBeitrag['eid']. "&title=BlogAuswählen' class='blogTitel'>".$blogBeitrag['title']."
-    ".$date."</a><br>";
+    ".$date."</a>";
    
 }
 
 echo "</div>";
+    
 
     if(isset($_GET['eid']))
     {
+        
+        echo "<div id='blogTeil'>";
  $eid= $_GET['eid'];
         
 $blogbeiträge = getEntry($eid);
@@ -30,6 +32,7 @@ $blogbeiträge = getEntry($eid);
     echo "<p>".$blogbeiträge['title']."</p>
     <p id='blogDate'>".$date."</p>
     <p>".$replace."</p>";
+    echo "</div>";
     }
 else
 {

@@ -28,11 +28,22 @@ body {
 }
 
 #Navbuttons {
-    margin-top: -2em;
+    margin-top: -1em;
     margin-right: auto;
     margin-left: auto;
-    width: 28em;
+    width: 15em;
     list-style: none;
+    font-size: 30px;
+}
+
+#Navbuttons li a
+{
+    display: block;
+}
+
+#Navbuttons li 
+{
+    float: left;
 }
 
 
@@ -207,6 +218,16 @@ body {
 
 #BlogAuswahl 
 {
+    margin-right: auto;
+    margin-left: auto;
+    height: 10em;
+    width: 55em;
+}
+
+#BlogAuswahl a
+{
+    float: left;
+    display: block;
     margin-left: 2em;
 }
 
@@ -222,4 +243,40 @@ body {
 #blogText
 {
     margin: 2em 2em 2em 2em;
+}
+
+#blogTeil p
+{
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+#Profilfoto
+{
+   margin: -1em;
+}
+
+#Profil
+{
+    text-align: center;
+    float: right;
+    height: 5em;
+    width: 8em;
+}
+
+#blogOwner
+{
+    font-size: 15px;
+}
+
+#Profil a:hover
+{
+    cursor: pointer;
+}
+
+#Profil a
+{
+    text-decoration: none;
+    color: white;
 }

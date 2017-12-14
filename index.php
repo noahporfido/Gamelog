@@ -28,17 +28,23 @@
   // Prüfung, ob bereits ein Blog ausgewählt worden ist
   if (isset($_GET['bid'])) $blogId = $_GET['bid'];
   else $blogId = 0;
-
+    
+    
     if(isset($_SESSION['userId']) && $_SESSION['userId'] > 0)
     {
+        $LoggedinUser = getUserName($_SESSION['userId']);
         echo "<div id='NavTop'>
             <img id='Logo' src='images/gamepad.png'>
             <h1 id='NavTitle'>GameLog</h1>
             <div id='Navbuttons'>
                 <li> <a href='index.php?function=blogs&bid=$blogId' class='Buttons'>Alle Blogs</a></li>
                 <li> <a href='{$_SERVER['PHP_SELF']}?logout=true' class='Buttons'>Abmelden</a></li>
-                <li><a class='Buttons' href='index.php?function=profil'>Profil</a></li>
             </div>
+            <div id='Profil'>
+            <a href='index.php?function=profil'>
+            <img id='Profilfoto' src='images/Profilbild.png'>
+            <h1 id='blogOwner'>".$LoggedinUser."</h1>
+            </a></div>
         </div>";
     }
     else
