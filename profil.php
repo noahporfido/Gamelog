@@ -15,27 +15,54 @@ foreach($blogBeiträge as $blogBeitrag)
    
 }
 
+if(isset($_POST['title']))
+{
+    updateEntry($_GET['eid'], $_POST['title'], $_POST['content']);
+    header("Location: {$_SERVER['PHP_SELF']}?function=profil");
+}
+
 echo "</div>";
     
 
     if(isset($_GET['eid']))
     {
         
-        echo "<div id='blogTeil'>";
- $eid= $_GET['eid'];
-        
-$blogbeiträge = getEntry($eid);
+       
+        $eid= $_GET['eid'];
+            
+        $blogbeiträge = getEntry($eid);
 
-    $replace = str_replace(array("\r\n","\r","\n"),"<br/>", $blogbeiträge['content']);
-    
-    $date = date("Y-m-d H:i:s", $blogbeiträge['datetime']);
-    echo "<p>".$blogbeiträge['title']."</p>
-    <p id='blogDate'>".$date."</p>
-    <p>".$replace."</p>";
-    echo "</div>";
+        $replace = str_replace(array("\r\n","\r","\n"),"<br/>", $blogbeiträge['content']);
+        
+        $date = date("Y-m-d H:i:s", $blogbeiträge['datetime']);
+
+        if(isset($_GET['edit']) && $_GET['edit'] == true)
+            {
+                echo "<form action='#' method='post'><div id='überschrift'><p id='ÜÜ'>Überschrift</p><textarea name='title' cols='35' rows='4' id='textTitle'>".$blogbeiträge['title']."</textarea></div>
+                <div id='text'><p id='TextÜ'>Text</p><textarea name='content' cols='35' rows='4' id='textContent'>".$replace."</textarea></div>
+                <button type='submit'>Speichern</button>
+                <button>Abbrechen</button>
+                </form>";
+            }
+        else
+            {
+                echo "<div id='blogTeil'>";
+                echo "<p>".$blogbeiträge['title']."</p>
+                <p id='blogDate'>".$date."</p>
+                <p>".$replace."</p>";
+                echo "</div>";
+                echo "<div id='editButtons'>
+                <button id='edit'><a href='index.php?function=profil&edit=true&eid=".$blogBeitrag['eid']."'>Bearbeiten</a></button>
+                <button id='delete'>Löschen</button>
+                <button id='create'>Erstellen</button>
+                </div>";
+            }
     }
 else
 {
     echo "<p>Wählen sie einen Blog</p>";
 }
+
+require_once($function .".php")
+
 ?>
