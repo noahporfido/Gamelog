@@ -383,3 +383,15 @@ body {
 {
     font-weight: bold;
 }
+
+#editButtons button a
+{
+    text-decoration: none;
+    color: black;
+}
+
+#editButtons button 
+{
+    width: 10em;
+    height: 3em;
+}

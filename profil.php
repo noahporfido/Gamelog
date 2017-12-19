@@ -21,7 +21,7 @@ if(isset($_POST['title']))
     header("Location: {$_SERVER['PHP_SELF']}?function=profil");
 }
 
-if(isset($_GET['delete']))
+
 
 
 
@@ -40,14 +40,6 @@ echo "</div>";
         
         $date = date("Y-m-d H:i:s", $blogbeiträge['datetime']);
 
-        /*if(isset($_GET['edit']) && $_GET['edit'] == true)
-            {
-                echo "<form action='#' method='post'><div id='überschrift'><p id='ÜÜ'>Überschrift</p><textarea name='title' cols='35' rows='4' id='textTitle'>".$blogbeiträge['title']."</textarea></div>
-                <div id='text'><p id='TextÜ'>Text</p><textarea name='content' cols='35' rows='4' id='textContent'>".$replace."</textarea></div>
-                <button type='submit'>Speichern</button>
-                <button>Abbrechen</button>
-                </form>";
-            }*/
             switch ($_GET['modus'])
             {
                 case 'edit':
@@ -59,30 +51,27 @@ echo "</div>";
                 break;
 
                 case 'delete':
-                echo ""
+                echo "";
                 break;
-            }
-
-
-        else
-            {
-                echo "<div id='blogTeil'>";
+                    
+                case '':
+                     echo "<div id='blogTeil'>";
                 echo "<p>".$blogbeiträge['title']."</p>
                 <p id='blogDate'>".$date."</p>
                 <p>".$replace."</p>";
-                echo "</div>";
-                echo "<div id='editButtons'>
+                echo "</div><div id='editButtons'>
                 <button id='edit'><a href='index.php?function=profil&modus=edit&eid=".$blogBeitrag['eid']."'>Bearbeiten</a></button>
                 <button id='delete'><a href='index.php?function=profil&modus=delete&eid=".$blogBeitrag['eid']."'>Löschen</a></button>
                 <button id='create'><a href='index.php?function=profil&modus=create&eid=".$blogBeitrag['eid']."'>Erstellen</a></button>
-                </div>";
+                </div>"; 
+                    break;
             }
     }
-else
-{
-    echo "<p>Wählen sie einen Blog</p>";
-}
+    else
+    {
+        echo "<p>Wählen sie einen Blog</p>";
+    }
 
-require_once($function .".php")
+    require_once($function .".php")
 
 ?>
