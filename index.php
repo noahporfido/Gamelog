@@ -28,8 +28,9 @@
   // Prüfung, ob bereits ein Blog ausgewählt worden ist
   if (isset($_GET['bid'])) $blogId = $_GET['bid'];
   else $blogId = 0;
-    
-    
+ 
+
+
     if(isset($_SESSION['userId']) && $_SESSION['userId'] > 0)
     {
         $LoggedinUser = getUserName($_SESSION['userId']);

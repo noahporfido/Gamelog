@@ -7,6 +7,7 @@
 
   // Nachfolgend das Beispiel einer Ausgabe in HTML, dieser Teil muss mit einer Schlaufe über alle Blogs und der Ausgabe mit PHP ersetzt werden
 echo "<div id='KategorienMenu'>";
+
 $blogs = getUserNames();
     
 

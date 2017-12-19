@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_POST['email']))
     {
         $userId = getUserIdFromDb($_POST['email'], $_POST['passwort']);
@@ -9,8 +10,9 @@
         }
         else
         {
-            $_SESSION['userId']=$userId;
-            header("Location: {$_SERVER['PHP_SELF']}?function=profil");
+           $_SESSION['userId']=$userId;
+           header("Location: index.php?function=profil");
+          
         }
     }
 ?>

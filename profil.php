@@ -21,21 +21,22 @@ if(isset($_POST['title']))
     header("Location: {$_SERVER['PHP_SELF']}?function=profil");
 }
 
+if(isset($_POST['addtitle']))
+{
+    addEntry($_SESSION['userId'], $_POST['addtitle'], $_POST['addcontent']);
+    header("Location: {$_SERVER['PHP_SELF']}?function=profil");
+}
 
-
-
-
-echo "</div>";
-    
-
-    if(isset($_GET['eid']))
+echo "</div>
+<button id='create'><a href='index.php?function=profil&modus=create&eid=0'>Erstellen</a></button>";
+     if(isset($_GET['eid']))
     {
         
        
         $eid= $_GET['eid'];
             
         $blogbeiträge = getEntry($eid);
-
+        
         $replace = str_replace(array("\r\n","\r","\n"),"<br/>", $blogbeiträge['content']);
         
         $date = date("Y-m-d H:i:s", $blogbeiträge['datetime']);
@@ -51,7 +52,8 @@ echo "</div>";
                 break;
 
                 case 'delete':
-                echo "";
+                deleteEntry($eid);
+                header("Location: {$_SERVER['PHP_SELF']}?function=profil");
                 break;
                     
                 case '':
@@ -60,18 +62,21 @@ echo "</div>";
                 <p id='blogDate'>".$date."</p>
                 <p>".$replace."</p>";
                 echo "</div><div id='editButtons'>
-                <button id='edit'><a href='index.php?function=profil&modus=edit&eid=".$blogBeitrag['eid']."'>Bearbeiten</a></button>
-                <button id='delete'><a href='index.php?function=profil&modus=delete&eid=".$blogBeitrag['eid']."'>Löschen</a></button>
-                <button id='create'><a href='index.php?function=profil&modus=create&eid=".$blogBeitrag['eid']."'>Erstellen</a></button>
+                <button id='edit'><a href='index.php?function=profil&modus=edit&eid=".$eid."'>Bearbeiten</a></button>
+                <button id='delete'><a href='index.php?function=profil&modus=delete&eid=".$eid."'>Löschen</a></button>
                 </div>"; 
                     break;
+                case 'create':
+                echo "<form action='#' method='post'><div id='überschrift'><p id='ÜÜ'>Überschrift</p><textarea value='Bitte ausfüllen' name='addtitle' cols='35' rows='4' id='textTitle'></textarea></div>
+                <div id='text'><p id='TextÜ'>Text</p><textarea name='addcontent' cols='35' rows='4' id='textContent' value='Bitte ausfüllen'></textarea></div>
+                <button type='submit'>Speichern</button>
+                <button>Abbrechen</button>
+                </form>";
+                break;
+
             }
+            
+            
     }
-    else
-    {
-        echo "<p>Wählen sie einen Blog</p>";
-    }
-
-    require_once($function .".php")
-
+   
 ?>
