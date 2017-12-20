@@ -7,9 +7,9 @@ foreach($blogBeiträge as $blogBeitrag)
 {
     $replace = str_replace(array("\r\n","\r","\n"),"<br/>", $blogBeitrag['content']);
     $date = date("Y-m-d H:i:s", $blogBeitrag['datetime']);
-    
+    $shortdate = date("Y-m-d", $blogBeitrag['datetime']);
     echo "<a href='index.php?function=blogsanzeige&bid=".$blogId."&eid=".$blogBeitrag['eid']. "&title=BlogAuswählen' class='blogTitel'>".$blogBeitrag['title']."
-    ".$date."</a><br>";
+    ".$shortdate."</a><br>";
    
 }
 

@@ -198,7 +198,9 @@ body {
     margin-top: 1em;
     display: block;
     width: 8em;
+    height: 3em;
     margin-left: 1em;
+    background-color: whitesmoke;
 }
 
 .blogTitel:hover {
@@ -223,8 +225,11 @@ body {
 {
     margin-right: auto;
     margin-left: auto;
-    height: 10em;
+    height: 13em;
     width: 55em;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 #BlogAuswahl a
@@ -241,6 +246,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     background-color: white;
+    margin-top: 2em;
 }
 
 #blogText
@@ -300,7 +306,7 @@ body {
     border: 2px solid black;
     font-size: 16px;
     padding: 14px 40px;
-        background-color: #4CAF50;
+    background-color: #4CAF50;
 }
 
 #delete{
@@ -411,4 +417,27 @@ body {
 {
     float: right;
     margin-top: -3em;
+}
+
+#createButton
+{
+    text-decoration: none;
+    color: black;
+}
+
+#buttoncreate
+{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    font-size: 16px;
+    padding: 14px 40px;
+    background-color: #4CAF50;
+    margin-left: 2em;
+}
+
+#buttoncreate:hover
+{
+    transition: background-color 0.5s ease;
+    background-color: white;
 }
