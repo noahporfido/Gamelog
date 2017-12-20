@@ -201,6 +201,7 @@ body {
     height: 3em;
     margin-left: 1em;
     background-color: whitesmoke;
+    padding-top: 0.5em;
 }
 
 .blogTitel:hover {
