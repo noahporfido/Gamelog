@@ -44,8 +44,8 @@ echo "</div>
             switch ($_GET['modus'])
             {
                 case 'edit':
-                echo "<form action='#' method='post'><div id='überschrift'><p id='ÜÜ'>Überschrift</p><textarea name='title' cols='35' rows='4' id='textTitle'>".$blogbeiträge['title']."</textarea></div>
-                <div id='text'><p id='TextÜ'>Text</p><textarea name='content' cols='35' rows='4' id='textContent'>".$replace."</textarea></div>
+                echo "<form action='#' method='post'><div id='überschrift'><p id='ÜÜ'>Überschrift</p><textarea required name='title' cols='35' rows='4' id='textTitle'>".$blogbeiträge['title']."</textarea></div>
+                <div id='text'><p id='TextÜ'>Text</p><textarea required name='content' cols='35' rows='4' id='textContent'>".$replace."</textarea></div>
                 <button type='submit'>Speichern</button>
                 <button>Abbrechen</button>
                 </form>";
@@ -67,8 +67,8 @@ echo "</div>
                 </div>"; 
                     break;
                 case 'create':
-                echo "<form action='#' method='post'><div id='überschrift'><p id='ÜÜ'>Überschrift</p><textarea value='Bitte ausfüllen' name='addtitle' cols='35' rows='4' id='textTitle'></textarea></div>
-                <div id='text'><p id='TextÜ'>Text</p><textarea name='addcontent' cols='35' rows='4' id='textContent' value='Bitte ausfüllen'></textarea></div>
+                echo "<form action='#' method='post'><div id='überschrift'><p id='ÜÜ'>Überschrift</p><textarea required value='Bitte ausfüllen' name='addtitle' cols='35' rows='4' id='textTitle'></textarea></div>
+                <div id='text'><p id='TextÜ'>Text</p><textarea required name='addcontent' cols='35' rows='4' id='textContent' value='Bitte ausfüllen'></textarea></div>
                 <button type='submit'>Speichern</button>
                 <button>Abbrechen</button>
                 </form>";
