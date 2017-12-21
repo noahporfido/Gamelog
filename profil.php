@@ -1,6 +1,5 @@
 <?php
 
-
 $blogBeiträge = getEntries($_SESSION['userId']);
 
     echo "<div id='BlogAuswahl'>";
@@ -33,18 +32,24 @@ if(isset($_POST['addtitle']))
     addEntry($uidp, $addtitlep, $addcontentp );
     header("Location: {$_SERVER['PHP_SELF']}?function=profil");
 }
+$editshow = false;
 echo "</div>";
      if(isset($_GET['eid']))
     {
         
        
         $eid= $_GET['eid'];
-            
+       if($eid != 0)
+       {     
         $blogbeiträge = getEntry($eid);
         
-        $replace = str_replace(array("\r\n","\r","\n"),"<br/>", $blogbeiträge['content']);
+        $replace = str_replace(array("\r\n","\r","\n"),"<br>", $blogbeiträge['content']);
         
         $date = date("Y-m-d H:i:s", $blogbeiträge['datetime']);
+       }
+        if(!isset($_GET['modus'])){
+            $_GET['modus'] = "";
+        }
             switch ($_GET['modus'])
             {
                 case 'edit':
@@ -64,7 +69,7 @@ echo "</div>";
                      echo "<div id='blogTeil'>";
                 echo "<div id='blogTitle'><p>".$blogbeiträge['title']."</p>
                 <p id='blogDate'>".$date."</p></div>
-                <p>".$replace."</p>";
+                <p>".$replace."</p></div>";
                 echo "<div id='editButtons'>
                 <button id='edit'><a href='index.php?function=profil&modus=edit&eid=".$eid."'>Bearbeiten</a></button>
                 <button id='delete'><a href='index.php?function=profil&modus=delete&eid=".$eid."'>Löschen</a></button>";
