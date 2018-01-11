@@ -9,6 +9,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>GameLog</title>
+    <link rel='icon' href=/images/gamepad.png>
 </head>
 
 <body>
@@ -56,6 +57,7 @@
             <div id='Navbuttons'>
                 <li> <a href='index.php?function=blogs&bid=$blogId' class='Buttons'>Alle Blogs</a></li>
                 <li> <a href='index.php?function=login&bid=$blogId' class='Buttons'>Login</a></li>
+                <li> <a href='index.php?function=blogs&bid=$blogId' class='Buttons'>Registrieren</a></li>
             </div>
         </div>";
     }

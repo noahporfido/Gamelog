@@ -8,7 +8,6 @@
 body {
     font-family: Raleway;
     margin: 0;
-    background-color: goldenrod;
 }
 
 #NavTitle {
@@ -32,7 +31,7 @@ body {
     margin-top: -1em;
     margin-right: auto;
     margin-left: auto;
-    width: 15em;
+    width: 20em;
     list-style: none;
     font-size: 30px;
 }
@@ -439,6 +438,39 @@ body {
 
 #buttoncreate:hover
 {
-    transition: background-color 0.5s ease;
+    transition: 0.5s;
     background-color: white;
+}
+
+
+#commentfield
+{
+    width: 20em;
+    height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#commentContent
+{
+    max-width: 20em;
+    max-height: 10em;
+    min-width: 20em;
+    min-height: 10em
+}
+
+#commentfiled button{
+    width: 5em;
+   margin-top: 0;
+}
+
+#commensection{
+    width: 20em;
+    height: 10em;
+}
+
+.kommentar
+{
+    margin-left: 3em;
 }
